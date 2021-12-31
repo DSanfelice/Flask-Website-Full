@@ -1,4 +1,4 @@
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, redirect, render_template, url_for
 
 app = Flask(__name__)
 
@@ -12,7 +12,14 @@ def blog():
 
 @app.route("/Resume")
 def resume():
-    return "Hello this is my resume"
+    return render_template("resume.html")
+
+@app.route("/one-page")
+def one_page():
+    """
+    temp route for seeing what the resume should look like
+    """
+    return render_template("one-page-resume.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
